@@ -1,0 +1,3 @@
+# Static assets (logos, OG images, downloads) belong here.
+# robots.txt and sitemap.xml are generated dynamically by app/robots.ts and
+# app/sitemap.ts, so they are intentionally not placed in this folder.
