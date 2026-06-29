@@ -16,6 +16,14 @@ philosophy, mission, technology and current status.
 
 Dark mode only. Fully responsive. SEO optimised.
 
+## Design constitution
+
+Before changing the UI, read **[`docs/DESIGN.md`](docs/DESIGN.md)** — the single
+source of truth for the visual identity, color tokens, typography, spacing,
+motion and copywriting rules. Every page and component must follow it. The
+design tokens it defines live in [`app/globals.css`](app/globals.css) under
+`@theme`; never hardcode colors or off-scale values in a component.
+
 ## Getting started
 
 ```bash

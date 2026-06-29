@@ -1,21 +1,34 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #08080b;
-  --color-surface: #0e0e13;
-  --color-foreground: #f4f4f6;
-  --color-muted: #8a8a96;
-  --color-subtle: #5a5a66;
-  --color-border: rgba(255, 255, 255, 0.08);
+  /* Surfaces — layered by elevation, separated by border + tone, not shadow. */
+  --color-background: #09090b;
+  --color-surface: #18181b;
+  --color-surface-elevated: #27272a;
 
+  /* Text */
+  --color-foreground: #fafafa;
+  --color-muted: #a1a1aa;
+  --color-subtle: #71717a;
+
+  /* Border */
+  --color-border: #27272a;
+
+  /* Brand purple — used with restraint, never as wallpaper. */
   --color-brand: #7c3aed;
-  --color-brand-soft: #8b5cf6;
-  --color-accent: #a855f7;
+  --color-brand-soft: #a855f7;
+  --color-accent: #c084fc;
+
+  /* Status — for state only, never branding or decoration. */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
 
   --font-sans:
     var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     sans-serif;
 
+  /* Cards: 20px radius per the design constitution. */
   --radius-card: 1.25rem;
 }
 
