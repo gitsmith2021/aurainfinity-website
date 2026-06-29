@@ -9,6 +9,7 @@ export function Ecosystem() {
   return (
     <Section
       id="ecosystem"
+      tone="light"
       eyebrow="The Aura Ecosystem"
       title="A connected family of platforms, built on one intelligent foundation."
     >

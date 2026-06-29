@@ -76,10 +76,17 @@ decisions.
 
 ## 4. Color System
 
-Dark theme only. Purple is the single accent — used with restraint, never as
-wallpaper. **No rainbow colors. No neon. No glow as decoration.**
+Purple is the single accent — used with restraint, never as wallpaper. **No
+rainbow colors. No neon. No glow as decoration.**
 
-### Tokens (source of truth)
+The site is **dual-tone**: sections alternate between dark and light bands (see
+§6). Both tones share the same brand purple and the same *semantic* token names
+(`background`, `surface`, `foreground`, `muted`, `border`, …). A section
+declares its tone once, and every component inside resolves the same tokens to
+the correct values. **Components never hardcode a color and never assume a
+tone** — they style with semantic tokens so they look correct in either band.
+
+### Dark tone (default — `.theme-dark`)
 
 | Role               | Token              | Hex       |
 | ------------------ | ------------------ | --------- |
@@ -96,6 +103,25 @@ wallpaper. **No rainbow colors. No neon. No glow as decoration.**
 | Success            | `success`          | `#22C55E` |
 | Warning            | `warning`          | `#F59E0B` |
 | Danger             | `danger`           | `#EF4444` |
+
+### Light tone (`.theme-light`)
+
+| Role               | Token              | Hex       |
+| ------------------ | ------------------ | --------- |
+| Primary (Aura)     | `brand`            | `#7C3AED` |
+| Emphasis purple    | `brand-soft`       | `#7C3AED` |
+| Accent purple      | `accent`           | `#7C3AED` |
+| Background          | `background`       | `#FFFFFF` |
+| Surface            | `surface`          | `#FAFAFA` |
+| Elevated surface   | `surface-elevated` | `#FFFFFF` |
+| Primary text       | `foreground`       | `#18181B` |
+| Secondary text     | `muted`            | `#52525B` |
+| Muted text         | `subtle`           | `#71717A` |
+| Border             | `border`           | `#E4E4E7` |
+
+> On light bands the emphasis/accent purples resolve to the deeper `#7C3AED`
+> so small text and eyebrows keep AA contrast. `brand` (the solid button fill)
+> is identical in both tones. Status colors are shared.
 
 ### Usage rules
 
@@ -151,8 +177,37 @@ Type is **one of the strongest design elements**. Treat it as such.
 
 ## 6. Theme
 
-**Dark theme only.** Do not implement light mode yet. `color-scheme: dark` is
-set globally. The entire experience must feel deliberate and elegant in dark.
+The site is **dual-tone, not a user-toggled light/dark mode.** There is no theme
+switcher. Instead, the page is composed of alternating **section bands** — some
+dark, some light — to create rhythm and let key moments breathe. The tone of
+each band is an editorial decision baked into the page, not a preference.
+
+### How it works
+
+- A band wraps its content in `.theme-dark` or `.theme-light`, which locally
+  redefines the semantic color tokens. Everything inside resolves automatically.
+- The document anchors in **dark**: the body background, the hero, and the
+  footer are dark, so there is no flash on load and the brand reads as
+  engineering-serious.
+- Use the [`Section`](../components/Section.tsx) `tone` prop (or a band wrapper)
+  to set tone — never restyle a component per section by hand.
+
+### Rhythm
+
+Alternate deliberately; never place two same-tone content bands back to back
+unless they are visually distinct. The current landing rhythm is:
+
+`Hero (dark) → Ecosystem (light) → Philosophy (dark) → Mission (light) →
+Technology (dark) → Timeline (light) → Footer (dark)`
+
+### Rules
+
+- Both tones must feel equally intentional and premium — the light bands are
+  crisp and calm (white/`#FAFAFA`), not a washed-out afterthought.
+- Transitions between bands are clean color edges; do not blend them with large
+  gradients.
+- Purple, motion, typography and spacing rules are **identical** across tones.
+  Only the surface/text/border tokens change.
 
 ---
 

@@ -66,6 +66,40 @@
   }
 }
 
+/*
+ * Section "tone" bands. The site is dual-tone (not a user-toggled theme):
+ * each band locally redefines the semantic color tokens, so every component
+ * inside resolves to the right values automatically. See docs/DESIGN.md §6.
+ */
+@layer base {
+  .theme-dark {
+    color-scheme: dark;
+    --color-background: #09090b;
+    --color-surface: #18181b;
+    --color-surface-elevated: #27272a;
+    --color-foreground: #fafafa;
+    --color-muted: #a1a1aa;
+    --color-subtle: #71717a;
+    --color-border: #27272a;
+    --color-brand-soft: #a855f7;
+    --color-accent: #c084fc;
+  }
+
+  .theme-light {
+    color-scheme: light;
+    --color-background: #ffffff;
+    --color-surface: #fafafa;
+    --color-surface-elevated: #ffffff;
+    --color-foreground: #18181b;
+    --color-muted: #52525b;
+    --color-subtle: #71717a;
+    --color-border: #e4e4e7;
+    /* Deeper purple keeps small text / eyebrows legible on light surfaces. */
+    --color-brand-soft: #7c3aed;
+    --color-accent: #7c3aed;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

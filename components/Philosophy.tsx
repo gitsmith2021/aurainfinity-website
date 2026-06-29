@@ -8,7 +8,7 @@ export function Philosophy() {
   const closing = principles[principles.length - 1];
 
   return (
-    <Section id="vision" eyebrow="Why Aura Exists">
+    <Section id="vision" tone="dark" eyebrow="Why Aura Exists">
       <div className="max-w-3xl">
         <ul className="space-y-8">
           {beliefs.map((line, index) => (

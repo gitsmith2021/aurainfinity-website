@@ -9,6 +9,7 @@ export function Timeline() {
   return (
     <Section
       id="status"
+      tone="light"
       eyebrow="Company Status"
       title="Where we are today."
     >

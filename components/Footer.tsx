@@ -7,7 +7,10 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="border-t border-border">
+    <footer
+      id="contact"
+      className="theme-dark border-t border-border bg-background text-foreground"
+    >
       {/* Contact call to action */}
       <div className="mx-auto w-full max-w-6xl px-6 py-24 sm:py-28">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">

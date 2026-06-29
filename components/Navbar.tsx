@@ -6,7 +6,8 @@ import { footerLinks } from "@/lib/data";
 
 /**
  * Minimal fixed header. Stays transparent over the hero, then settles into a
- * subtle glass bar once the user starts scrolling.
+ * dark translucent bar once scrolled — kept dark on purpose so it reads cleanly
+ * over both the light and dark section bands below.
  */
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -20,8 +21,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "glass border-b border-border" : "border-b border-transparent"
+      className={`theme-dark fixed inset-x-0 top-0 z-50 text-foreground transition-colors duration-300 ${
+        scrolled
+          ? "border-b border-border bg-background/80 backdrop-blur-md"
+          : "border-b border-transparent"
       }`}
     >
       <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
@@ -41,7 +44,7 @@ export function Navbar() {
         </div>
         <a
           href="#contact"
-          className="rounded-full border border-border bg-white/[0.02] px-4 py-2 text-sm text-foreground transition-colors hover:border-white/20 hover:bg-white/[0.05]"
+          className="rounded-full border border-border bg-foreground/[0.04] px-4 py-2 text-sm text-foreground transition-colors hover:border-foreground/20 hover:bg-foreground/[0.08]"
         >
           Contact
         </a>
